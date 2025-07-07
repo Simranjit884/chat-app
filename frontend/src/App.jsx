@@ -1,13 +1,17 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
     <div>
-      <button className="btn btn-xs">Xsmall</button>
-      <button className="btn btn-sm">Small</button>
-      <button className="btn">Medium</button>
-      <button className="btn btn-lg">Large</button>
-      <button className="btn btn-xl">Xlarge</button>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
     </div>
   );
 };
