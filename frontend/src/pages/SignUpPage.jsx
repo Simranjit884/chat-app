@@ -10,9 +10,10 @@ import {
   User,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import AuthImagePattern from "../components/AuthImagePattern"; // ← make sure you import this component!
 
 const SignUpPage = () => {
-  const [showPassword, setShowPassword] = useState();
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -32,7 +33,7 @@ const SignUpPage = () => {
       {/* left side */}
       <div className="flex flex-col items-center justify-center p-6 sm:p-12">
         <div className="w-full max-w-md space-y-8">
-          {/*Logo */}
+          {/* Logo */}
           <div className="mb-8 text-center">
             <div className="group flex flex-col items-center gap-2">
               <div className="group-hover:bg-primary/20 flex size-12 items-center justify-center rounded-xl transition-colors">
@@ -50,7 +51,6 @@ const SignUpPage = () => {
               <label className="label">
                 <span className="label-text font-medium">Full Name</span>
               </label>
-
               <label className="input input-bordered flex w-full items-center gap-2">
                 <User className="text-base-content/40 size-5" />
                 <input
@@ -69,7 +69,6 @@ const SignUpPage = () => {
               <label className="label">
                 <span className="label-text font-medium">Email</span>
               </label>
-
               <label className="input input-bordered flex w-full items-center gap-2">
                 <Mail className="text-base-content/40 size-5" />
                 <input
@@ -88,10 +87,8 @@ const SignUpPage = () => {
               <label className="label">
                 <span className="label-text font-medium">Password</span>
               </label>
-
               <label className="input input-bordered flex w-full items-center gap-2">
                 <Lock className="text-base-content/40 size-5" />
-
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
@@ -101,7 +98,6 @@ const SignUpPage = () => {
                     setFormData({ ...formData, password: e.target.value })
                   }
                 />
-
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -142,6 +138,12 @@ const SignUpPage = () => {
           </div>
         </div>
       </div>
+
+      {/* right side */}
+      <AuthImagePattern
+        title="Join our community"
+        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
+      />
     </div>
   );
 };
