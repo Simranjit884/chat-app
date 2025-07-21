@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage";
 import { useAuthStore } from "./store/useAuthStore";
 
 import { Loader } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -23,7 +24,7 @@ const App = () => {
 
   if (isCheckingAuth && !authUser) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex h-screen items-center justify-center">
         <Loader className="size-10 animate-spin" />
       </div>
     );
@@ -51,6 +52,7 @@ const App = () => {
           element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
         />
       </Routes>
+      <Toaster />
     </div>
   );
 };
