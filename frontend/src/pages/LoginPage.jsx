@@ -87,10 +87,10 @@ const LoginPage = () => {
               disabled={isLoggIng}
             >
               {isLoggIng ? (
-                <>
+                <React.Fragment>
                   <Loader2 className="size-5 animate-spin" />
                   Loading...
-                </>
+                </React.Fragment>
               ) : (
                 "Sign in"
               )}
