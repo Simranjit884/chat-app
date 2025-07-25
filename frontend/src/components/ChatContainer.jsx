@@ -7,7 +7,7 @@ import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
 
 const ChatContainer = () => {
-  const { messages, getMessages, isMessagesLoading, selectedUser } =
+  const { messages, getMessages, isMessagesLoading, selectedUser, subscribeToMessages, unsubscribeFromMessages } =
     useChatStore();
 
   const { authUser } = useAuthStore();
@@ -15,7 +15,11 @@ const ChatContainer = () => {
 
   useEffect(() => {
     getMessages(selectedUser._id);
-  }, [selectedUser._id, getMessages]);
+
+    subscribeToMessages();
+
+    return () => unsubscribeFromMessages();
+  }, [selectedUser._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
 
   useEffect(() => {
     if (messageEndRef.current && messages) {
@@ -57,17 +61,11 @@ const ChatContainer = () => {
               </div>
             </div>
             <div className="chat-header mb-1">
-              <time className="ml-1 text-xs opacity-50">
-                {formatMessageTime(message.createdAt)}
-              </time>
+              <time className="ml-1 text-xs opacity-50">{formatMessageTime(message.createdAt)}</time>
             </div>
             <div className="chat-bubble flex flex-col">
               {message.image && (
-                <img
-                  src={message.image}
-                  alt="Attachment"
-                  className="mb-2 rounded-md sm:max-w-[200px]"
-                />
+                <img src={message.image} alt="Attachment" className="mb-2 rounded-md sm:max-w-[200px]" />
               )}
               {message.text && <p>{message.text}</p>}
             </div>
