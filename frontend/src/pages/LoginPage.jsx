@@ -45,9 +45,7 @@ const LoginPage = () => {
                   placeholder="you@example.com"
                   className="grow"
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </label>
             </div>
@@ -63,29 +61,19 @@ const LoginPage = () => {
                   placeholder="••••••••"
                   className="grow"
                   value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="text-base-content/40 hover:text-base-content transition-colors"
                 >
-                  {showPassword ? (
-                    <EyeOff className="size-5" />
-                  ) : (
-                    <Eye className="size-5" />
-                  )}
+                  {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
                 </button>
               </label>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary w-full"
-              disabled={isLoggIng}
-            >
+            <button type="submit" className="btn btn-primary w-full" disabled={isLoggIng}>
               {isLoggIng ? (
                 <React.Fragment>
                   <Loader2 className="size-5 animate-spin" />

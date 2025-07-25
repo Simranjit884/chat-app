@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import {
-  Eye,
-  EyeOff,
-  Loader2,
-  Lock,
-  Mail,
-  MessageSquare,
-  User,
-} from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import AuthImagePattern from "../components/AuthImagePattern";
 import toast from "react-hot-toast";
@@ -26,11 +18,9 @@ const SignUpPage = () => {
   const validateForm = () => {
     if (!formData.fullName.trim()) return toast.error("Full name is required");
     if (!formData.email.trim()) return toast.error("Email is required");
-    if (!/\S+@\S+\.\S+/.test(formData.email))
-      return toast.error("Invalid email format");
+    if (!/\S+@\S+\.\S+/.test(formData.email)) return toast.error("Invalid email format");
     if (!formData.password) return toast.error("Password is required");
-    if (formData.password.length < 6)
-      return toast.error("Password must be at least 6 characters");
+    if (formData.password.length < 6) return toast.error("Password must be at least 6 characters");
 
     return true;
   };
@@ -55,9 +45,7 @@ const SignUpPage = () => {
                 <MessageSquare />
               </div>
               <h1 className="mt-2 text-2xl font-bold">Create Account</h1>
-              <p className="text-base-content/60">
-                Get started with your free account
-              </p>
+              <p className="text-base-content/60">Get started with your free account</p>
             </div>
           </div>
 
@@ -73,9 +61,7 @@ const SignUpPage = () => {
                   placeholder="John Doe"
                   className="grow"
                   value={formData.fullName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, fullName: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
               </label>
             </div>
@@ -91,9 +77,7 @@ const SignUpPage = () => {
                   placeholder="you@example.com"
                   className="grow"
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </label>
             </div>
@@ -109,29 +93,19 @@ const SignUpPage = () => {
                   placeholder="••••••••"
                   className="grow"
                   value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="text-base-content/40 hover:text-base-content transition-colors"
                 >
-                  {showPassword ? (
-                    <EyeOff className="size-5" />
-                  ) : (
-                    <Eye className="size-5" />
-                  )}
+                  {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
                 </button>
               </label>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary w-full"
-              disabled={isSigningUp}
-            >
+            <button type="submit" className="btn btn-primary w-full" disabled={isSigningUp}>
               {isSigningUp ? (
                 <>
                   <Loader2 className="size-5 animate-spin" />

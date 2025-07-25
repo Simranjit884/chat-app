@@ -20,9 +20,7 @@ const SettingsPage = () => {
       <div className="space-y-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">Theme</h2>
-          <p className="text-base-content/70 text-sm">
-            Choose a theme for your chat interface
-          </p>
+          <p className="text-base-content/70 text-sm">Choose a theme for your chat interface</p>
         </div>
 
         <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8">
@@ -32,10 +30,7 @@ const SettingsPage = () => {
               className={`group flex flex-col items-center gap-1.5 rounded-lg p-2 transition-colors ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"} `}
               onClick={() => setTheme(t)}
             >
-              <div
-                className="relative h-8 w-full overflow-hidden rounded-md"
-                data-theme={t}
-              >
+              <div className="relative h-8 w-full overflow-hidden rounded-md" data-theme={t}>
                 <div className="absolute inset-0 grid grid-cols-4 gap-px p-1">
                   <div className="bg-primary rounded"></div>
                   <div className="bg-secondary rounded"></div>

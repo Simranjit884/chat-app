@@ -13,10 +13,7 @@ const ChatHeader = () => {
           {/* Avatar */}
           <div className="avatar">
             <div className="z-10 size-10 overflow-visible rounded-full">
-              <img
-                src={selectedUser.profilePic || "/avatar.png"}
-                alt={selectedUser.fullName}
-              />
+              <img src={selectedUser.profilePic || "/avatar.png"} alt={selectedUser.fullName} />
               {onlineUsers.includes(selectedUser._id) && (
                 <span className="absolute top-0.5 right-0 z-100 size-3 rounded-full bg-green-500 ring-2 ring-zinc-900" />
               )}
@@ -33,7 +30,7 @@ const ChatHeader = () => {
         </div>
 
         {/* Close button */}
-        <button onClick={() => setSelectedUser(null)}>
+        <button className="cursor-pointer" onClick={() => setSelectedUser(null)}>
           <X />
         </button>
       </div>
