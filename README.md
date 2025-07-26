@@ -14,8 +14,8 @@ A full-stack real-time chat application built with ReactJS, Express, MongoDB, an
 
 ## Tech Stack
 
-- **Frontend:** ReactJS, Vite, Axios, DaisyUI, HTML, CSS
-- **Backend:** Node.js, Express, MongoDB (Mongoose), Socket.io, Cloudinary
+- **Frontend:** ReactJS,TailwindCSS
+- **Backend:** Node.js, Express, MongoDB (Mongoose), Socket.io
 - **Deployment:** Render.com
 
 ## Folder Structure
