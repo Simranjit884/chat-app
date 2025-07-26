@@ -1,6 +1,6 @@
 # Chat App
 
-A full-stack real-time chat application built with ReactJS, Express, MongoDB, and Socket.io. This project allows users to sign up, log in, chat in real time, and update their profiles. The app is designed for easy deployment on platforms like Render.com.
+A full-stack real-time chat application built with ReactJS, Express, MongoDB, and Socket.io. This project allows users to sign up, log in, chat in real time, and update their profiles.
 
 ## Features
 
